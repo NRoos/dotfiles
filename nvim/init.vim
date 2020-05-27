@@ -53,6 +53,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 Plug 'guns/vim-sexp', {'for': 'clojure'}
