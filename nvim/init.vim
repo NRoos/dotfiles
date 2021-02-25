@@ -1,6 +1,6 @@
 :set list
-:set shiftwidth=2
-:set tabstop=2
+:set shiftwidth=4
+:set tabstop=4
 :set expandtab
 :set splitbelow
 :set splitright
@@ -9,10 +9,11 @@
 :set encoding=utf-8
 :set path=$PWD/**
 
-:colorscheme pablo
 
 :let g:netrw_banner=0
 :let g:netrw_liststyle=3
+
+:colorscheme koehler
 
 :nnoremap <C-J> <C-W><C-J>
 :nnoremap <C-L> <C-W><C-L>
