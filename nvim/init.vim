@@ -55,6 +55,7 @@ Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tveskag/nvim-blame-line'
 
 
 Plug 'guns/vim-sexp', {'for': 'clojure'}
