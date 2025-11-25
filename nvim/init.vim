@@ -25,6 +25,12 @@
 :xnoremap ç :'<.'>w !pbcopy<CR><CR>
 :nnoremap <C-W><C-G> :Goyo<CR>
 
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+
 :set number relativenumber
 
 :augroup numbertoggle
@@ -49,6 +55,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
+Plug 'shaunsingh/nord.nvim'
 Plug 'tveskag/nvim-blame-line'
 Plug 'junegunn/goyo.vim'
 Plug 'yuezk/vim-js'
@@ -56,13 +63,12 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tveskag/nvim-blame-line'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': 'v0.1.9' }
+Plug 'github/copilot.vim'
 
+Plug 'AlexvZyl/nordic.nvim', { 'branch': 'main' }
 
-Plug 'guns/vim-sexp', {'for': 'clojure'}
-Plug 'guns/vim-slamhound', {'for': 'clojure'}
-Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
-Plug 'tpope/vim-salve', {'for': 'clojure'}
-Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 
 call plug#end()
 
