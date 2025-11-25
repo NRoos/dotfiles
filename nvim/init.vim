@@ -13,7 +13,6 @@
 :let g:netrw_banner=0
 :let g:netrw_liststyle=3
 
-:colorscheme koehler
 
 :nnoremap <C-J> <C-W><C-J>
 :nnoremap <C-L> <C-W><C-L>
@@ -87,5 +86,7 @@ let g:ale_sign_column_always = 1
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+
+:colorscheme nordic
 
 autocmd BufEnter * EnableBlameLine
