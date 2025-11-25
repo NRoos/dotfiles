@@ -45,22 +45,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.neovim/plugged')
-Plug 'luochen1990/rainbow'
 Plug 'pangloss/vim-javascript'
 Plug 'wokalski/autocomplete-flow'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'hashivim/vim-terraform'
 Plug 'shaunsingh/nord.nvim'
 Plug 'tveskag/nvim-blame-line'
 Plug 'junegunn/goyo.vim'
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tveskag/nvim-blame-line'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': 'v0.1.9' }
@@ -74,18 +71,17 @@ call plug#end()
 let g:sexp_enable_insert_mode_mappings = 0
 let g:deoplete#enable_at_startup = 1
 
-let g:rainbow_active = 1
-
-let g:rainbow_conf = { 'ctermfgs': ['blue', 'red', 'cyan', 'magenta'] }
-
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
 let g:ale_sign_column_always = 1
 
-" This is only necessary if you use "set termguicolors".
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let g:ale_fixers = {
+\   'typescript': ['prettier'],
+\   'typescriptreact': ['prettier'],
+\   'css': ['prettier'],
+\}
 
+let g:ale_fix_on_save = 1
 
 :colorscheme nordic
 
