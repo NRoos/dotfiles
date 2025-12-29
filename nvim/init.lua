@@ -113,7 +113,7 @@ rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
-	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+	"norcalli/nvim-colorizer.lua", -- Colorizes color codes in files
 	"NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
 	"github/copilot.vim",
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
