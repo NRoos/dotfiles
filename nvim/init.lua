@@ -436,6 +436,77 @@ require("lazy").setup({
 				-- ts_ls = {},
 				--
 
+				-- TypeScript/JavaScript
+				ts_ls = {
+					settings = {
+						typescript = {
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+						javascript = {
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+					},
+				},
+
+				-- HTML
+				html = {},
+
+				-- CSS
+				cssls = {},
+
+				-- Tailwind CSS
+				tailwindcss = {
+					settings = {
+						tailwindCSS = {
+							experimental = {
+								classRegex = {
+									{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+									{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+								},
+							},
+						},
+					},
+				},
+
+				-- JSON
+				jsonls = {},
+
+				-- ESLint
+				eslint = {
+					settings = {
+						workingDirectories = { mode = "auto" },
+					},
+				},
+
+				basedpyright = {
+					settings = {
+						basedpyright = {
+							analysis = {
+								typeCheckingMode = "basic",
+								autoSearchPaths = true,
+								useLibraryCodeForTypes = true,
+								diagnosticMode = "openFilesOnly",
+							},
+						},
+					},
+				},
+
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
@@ -468,6 +539,7 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"prettierd", -- Fast formatter for JS/TS/HTML/CSS/JSON/etc
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -520,11 +592,17 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+				json = { "prettierd", "prettier", stop_after_first = true },
+				html = { "prettierd", "prettier", stop_after_first = true },
+				css = { "prettierd", "prettier", stop_after_first = true },
+				scss = { "prettierd", "prettier", stop_after_first = true },
+				markdown = { "prettierd", "prettier", stop_after_first = true },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
-				--
-				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
@@ -694,16 +772,22 @@ require("lazy").setup({
 			ensure_installed = {
 				"bash",
 				"c",
+				"css",
 				"diff",
 				"html",
+				"javascript",
+				"jsdoc",
+				"json",
 				"lua",
 				"luadoc",
 				"markdown",
 				"markdown_inline",
+				"python",
 				"query",
+				"tsx",
+				"typescript",
 				"vim",
 				"vimdoc",
-				"typescript",
 			},
 			auto_install = true,
 			highlight = {
