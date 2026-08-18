@@ -4,6 +4,18 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
+    { "williamboman/mason.nvim", opts = {} },
+    { "williamboman/mason-lspconfig.nvim", opts = {
+      ensure_installed = {
+        "gopls",
+        "lua_ls",
+        "yamlls",
+        "ts_ls",
+        "marksman",
+        "ruff",
+        "eslint",
+      },
+    }},
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
